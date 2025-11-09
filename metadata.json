@@ -1,0 +1,7 @@
+{
+  "name": "ChatJiam host",
+  "description": "A sophisticated, multimodal AI assistant featuring advanced chat, image generation, lyrics search, and real-time voice communication capabilities, all presented in a sleek, modern interface.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
