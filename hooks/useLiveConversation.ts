@@ -10,15 +10,8 @@ declare global {
     }
 }
 
-// Safely access the API key
-const apiKey = (typeof process !== 'undefined' && process.env && process.env.API_KEY) 
-  ? process.env.API_KEY 
-  : undefined;
-
-if (!apiKey) {
-  console.error("API_KEY environment variable not set for Gemini service.");
-}
-const ai = new GoogleGenAI({ apiKey: apiKey! });
+// Fix: Per guidelines, initialize with process.env.API_KEY. This also resolves the TypeScript error.
+const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 // --- Audio Encoding/Decoding Utilities (as per Gemini guidelines) ---
 

@@ -1,10 +1,8 @@
 import { GoogleGenAI, Modality } from "@google/genai";
 import type { ChatMessage, ImageContent } from '../types';
 
-// Safely access the API key to prevent a ReferenceError in browser environments.
-export const apiKey = (typeof process !== 'undefined' && process.env && process.env.API_KEY) 
-  ? process.env.API_KEY 
-  : undefined;
+// Fix: Per guidelines, the API key must be obtained from process.env.API_KEY.
+export const apiKey = process.env.API_KEY;
 
 if (!apiKey) {
   console.error("API_KEY environment variable not set for Gemini service.");
